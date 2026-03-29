@@ -39,23 +39,26 @@ var docMod = document.lastModified; // loads last modified time stamp into docMo
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
 
+window.onload = function() {
+	
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
-	function drawRect() {
+	window.drawRect = function() {
 		ctx.fillRect(50, 50, 100, 80);
 
 }
 
-	function drawName() {
+	window.drawName = function() {
 		ctx.font = "25px Arial";
 		ctx.fillText("Grace Bello", 50, 150);
 
 }
 
-	function drawImage() {
+	window.drawImage = function() {
 		let img = new Image();
-		img.src = "";
+		img.src = "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Web_of_Spider-Man_Vol_1_129-1.png/250px-Web_of_Spider-Man_Vol_1_129-1.png";
+		
 		img.onload = function() {
 			ctx.drawImage(img, 50, 170, 120, 100);
 
@@ -63,7 +66,7 @@ let ctx = canvas.getContext("2d");
 
 }
 
-	function clearCanvas() {
+	window.clearCanvas = function() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 }
@@ -106,7 +109,7 @@ let ctx = canvas.getContext("2d");
 
 	<button onclick="drawRect();" class="w3-button w3-teal w3-round">Draw Rect</button>
 	<button onclick="drawName();" class="w3-button w3-teal w3-round">Draw Name</button>
-	<button onclick="loadImage();" class="w3-button w3-teal w3-round">Load Image</button>
+	<button onclick="drawImage();" class="w3-button w3-teal w3-round">Load Image</button>
 	<button onclick="clearCanvas();" class="w3-button w3-teal w3-round">Clear</button>
 	
 	</div>
