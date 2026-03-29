@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Grace Bello
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -16,37 +16,38 @@ Research Educator:
 Timothy Riedel
 triedel@utexas.edu
  
-Brief Description of Goal of Code:
-blah, blah, blah,
+Brief Description of Goal of Code: 
+Have a rectangle, name and image appear the canvas box and then clear with the clicking of separate buttons.
+
  
 Known Issues:
-blah, blah, blah, blah
+N/a
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
    <head> 
-      <title>App6---HTML5-Canvas</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="apple-mobile-web-app-capable" content="yes">
+      <title>App6---HTML5-Canvas</title>  <!--main title for the app at the top of the screen-->
+      <meta name="viewport" content="width=device-width, initial-scale=1"> <!--allowing apps to look presentable on phones-->
+      <meta name="apple-mobile-web-app-capable" content="yes"> <!--allowing apps to work for phones-->
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
 
-<style>	
+<style>	/*formatting and used for making the page look nice */
 .body {
      margin: 0em;
 }
 .page {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; /*page width */
+    height: 100vh; /*page height */
     position: fixed;
     top: 0;
     left: -100vw;
     overflow-y: auto;
     z-index: 0;
-    background-color: hsl(0,0%,100%);
+    background-color: hsl(0,0%,100%); /*the background color */
 }
   .page:target {
     left: 0vw;
@@ -56,29 +57,32 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>App6---HTML5-Canvas</h1>
+	<h1>App6---HTML5-Canvas</h1> <!--main title for the app at the top of the screen-->
 </div>
 	
-<div id="content" class="w3-container">
+<div id="content" class="w3-container"> 
 	
-	<p>Canvas App:</p>
+	<p>Canvas App:</p> <!--label for the canvas portion-->
 
-	<canvas id="myCanvas" width="300" height="300" style="border:2px solid black;"></canvas>
+	<canvas id="myCanvas" width="300" height="300" style="border:2px solid black;"></canvas> <!-- formating -->
 	<br><br>
 
-	<button onclick="drawRect();" class="w3-button w3-teal w3-round">Draw Rect</button>
+	<!--code that activiates functions with click-->
+	<button onclick="drawRect();" class="w3-button w3-teal w3-round">Draw Rect</button> 
 	<button onclick="drawName();" class="w3-button w3-teal w3-round">Draw Name</button>
 	<button onclick="drawImage();" class="w3-button w3-teal w3-round">Load Image</button>
 	<button onclick="clearCanvas();" class="w3-button w3-teal w3-round">Clear</button>
 	
 	</div>
 	
-		
+<!-- The lab disclaimer for saftey reasons-->
+	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<footer class="w3-bottom w3-container w3-flat-carrot">
+<!--Footing bar at the bottom of the scree-->
+	<footer class="w3-bottom w3-container w3-flat-carrot"> 
 	<p>DIY!</p>
 </footer>
 
@@ -90,35 +94,35 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
-	function drawRect() {
-		ctx.fillStyle = "lightblue";
-		ctx.fillRect(50, 50, 100, 80);
+	function drawRect() { // drawing the rectangle
+		ctx.fillStyle = "lightpink"; //the set rectangle color
+		ctx.fillRect(50, 50, 100, 80); //the rectangle format, x,y, width and height
 
 }
 
-	function drawName() {
-		ctx.fillStyle = "black";
-		ctx.font = "25px Arial";
-		ctx.fillText("Grace Bello", 50, 150);
+	function drawName() { //inserting the name
+		ctx.fillStyle = "black"; //fill color for the name
+		ctx.font = "25px Arial"; //name font and size
+		ctx.fillText("Grace Bello", 50, 150); //the name included "Grace Bello"
 
 }
 
-	function drawImage() {
-		let img = new Image();
-		img.src = "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Web_of_Spider-Man_Vol_1_129-1.png/250px-Web_of_Spider-Man_Vol_1_129-1.png";
+	function drawImage() { //uploading the picture
+		let img = new Image(); //creating the new image
+		img.src = "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Web_of_Spider-Man_Vol_1_129-1.png/250px-Web_of_Spider-Man_Vol_1_129-1.png"; //link to the image (it's spider=man) :)
 		
-		img.onload = function() {
-			ctx.drawImage(img, 50, 170, 120, 100);
+		img.onload = function() { //drawing the image on the canvas
+			ctx.drawImage(img, 50, 170, 120, 100); //formating of the image x,y,width and height
 
 		};
 }
 
-	function clearCanvas() {
+	function clearCanvas() { //clearing the canvas
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	}
 
-window.drawRect = drawRect;
+window.drawRect = drawRect; //making functions available to HTML buttons
 window.drawName = drawName;
 window.drawImage = drawImage;
 window.clearCanvas = clearCanvas;
